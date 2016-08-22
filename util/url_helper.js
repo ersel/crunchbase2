@@ -1,6 +1,6 @@
 var qs = require('qs');
 
-var endpoint = 'http://api.crunchbase.com/v/2/';
+var endpoint = 'https://api.crunchbase.com/v/3/';
 var keyParam, config = {};
 
 function init(apikey) {
@@ -16,7 +16,7 @@ function getOrganizationsUrl(params) {
 
 function getOrganizationUrl(permalink) {
   return endpoint
-  + 'organization/' + permalink + keyParam;
+  + 'organizations/' + permalink + keyParam;
 }
 
 function getPeopleUrl(page){
@@ -69,7 +69,7 @@ function getLocationsUrl(params) {
 
 function getCatagoriesUrl(params) {
   return endpoint
-  + 'catagories' + keyParam
+  + 'categories' + keyParam
   + '&' + qs.stringify(params);
 }
 

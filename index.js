@@ -64,12 +64,13 @@ function getLocations(params, callback) {
 
 function getCatagories(params, callback) {
   var url = urlHelper.getCatagoriesUrl(params);
-  createRequest(url, callback);
+	createRequest(url, callback);
 }
 
 function createRequest(url, callback) {
   request(url, function (error, response, body) {
     try {
+      console.log(url);
       callback(error, JSON.parse(body));
     } catch (error) {
       callback(error, body);
@@ -114,7 +115,7 @@ module.exports = {
   locations: function(params, callback) {
     return getLocations(params, callback);
   },
-  catagories: function(params) {
-    return getCatagories(params);
+  catagories: function(params, callback) {
+    return getCatagories(params, callback);
   }
 }
